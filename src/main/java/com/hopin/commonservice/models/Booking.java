@@ -22,15 +22,15 @@ public class Booking extends BaseClass {
 
     private Instant endTime;
 
-    @OneToOne
+    @OneToOne(cascade = CascadeType.ALL)
     private ExactLocation startLocation;
-    @OneToOne
+    @OneToOne(cascade = CascadeType.ALL)
     private ExactLocation endLocation;
 
     private long totalDistance;
 
-    @ManyToOne(fetch=FetchType.EAGER)
-    @JoinColumn(name = "diver_id")
+    @ManyToOne(fetch = FetchType.LAZY)
+//    @JoinColumn(name = "diver_id")
     private Driver driver;
 
     @OneToOne
